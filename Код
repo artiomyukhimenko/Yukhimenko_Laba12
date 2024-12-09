@@ -1,0 +1,42 @@
+#include <Windows.h>
+#include <string> 
+#include <iostream>
+using namespace std;
+
+class Device {
+protected:
+	string model;
+	string brand;
+public:
+
+	Device(string b, string m) :brand(b),model(m) {}
+
+	void info() {
+		cout << "Інформація про пристрій:"  << "Бренд:" << brand << "-" << "Модель:" << model << "." << endl;
+
+	}
+
+};
+
+class Smartphone : public Device {
+private:
+	string operatingSystem;
+
+public:
+	Smartphone(string b, string m, string os) : Device(b, m), operatingSystem(os){}
+
+	void App(string nameApp) {
+		
+		cout << "Встановелння додатку:" << nameApp << ",на:" << brand << ":" << model << "." << endl;
+	}
+
+};
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	Smartphone phone("Samsung", "Galaxy S24 Ultra", "Android");
+
+	phone.info();
+	phone.App("Github");
+
+}
